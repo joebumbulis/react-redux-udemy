@@ -7,6 +7,11 @@
 - Twitter: `@ste_grider;`
 - Email: `ste.grider@gmail.com`
 
+### Start new React Project:
+- `npx create-react-app [app-name]`
+- npm install?
+- npm start
+
 ### Section 3: Three Tenets of Components
   - Nesting:
     - a component can be shown inside of another
@@ -63,11 +68,11 @@
     - while you can do data loading (network calls, API calls, etc), BEST practices are that you should not fetch data in the constructor
   - 2) render - NOT optional unlike the rest of these methods.
     - return some jsx (nothing else, like fetching, network call, etc)
-  - 3) `componentDidMount(`) - gets called, one time, when component is first visible
+  - 3) `componentDidMount()` - gets called, one time, when component is first visible
     - while waiting for setState to update
     - good place for initial data loading
     - or kick off process to get data that only needs to be fetched once
-    - BEST place to do data loading - API requests, network calls, etc. While you can do data loading in the constructor, BEST place to do darta loading is in the componentDidMount() method.
+    - BEST place to do data loading - API requests, network calls, etc. While you can do data loading in the constructor, BEST place to do data loading is in the componentDidMount() method.
   - 4) `componentDidUpdate()` - called auto any time the component updates itself
     - good place to do more data-loading when state/props change
   - 5) `componentWillUnmount()` - if for some reason the component will no longer be shown on the page, then this methods cleans up or takes away the component.
@@ -98,4 +103,15 @@ constructor(props) {
 ##### Passing State as props
 - Passing state into child component using props
 - create new instance of SeasonDisplay component, then pass a new prop with the state `lat={this.state.latitude}`
-- 
+
+##### Object Config file for Conditional logic
+- see `SeasonDisplay.js` object `seasonConfig` for how to use a config object for logic.
+
+##### Default Props
+Let's say a prop is not passed down to a component from the parent. Then insdie the same file as the child component, include default props.
+-See Seasons > Spinner
+```
+Spinner.defaultProps = {
+  message: 'Loading...'
+};
+```
